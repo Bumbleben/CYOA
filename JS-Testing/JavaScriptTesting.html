@@ -2,32 +2,39 @@
 <html>
 <head>
 	<title>JSGame</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 	<script>
 		var count = 0;
+
 		var hello = function() {
+			console.log("HELLO!!!!");
 			count++;
+			console.log(count);
 			if (count<2) {
 				alert("Mum");
-			} else if (count<5) {
-				alert("Mommy");
-			}else while(true) {
-				alert("Mama")
+			} else while(count<10) {
+				if (count<5) {
+					console.log("in count < 5");
+					alert("Mummy");
+					count++;
+				}
+				else {
+					alert("Mama");
+					count++;
+				}
 			}
 		}
 
-
-
-
-
-
-
+		var helloWorld = function() {
+			console.log("xjakslfjsa");
+			alert("Hello");
+		}
 
 	</script>
 
 
 </head>
 <body>
-<button onclick="hello()"></button>
+	<button type = "button" onclick="hello()">HI!</button>
 </body>
-</html>>
+</html>
