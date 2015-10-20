@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+
+		<title>Exercises template</title>
+		<script>
+
+			var fizzBuzz = function() {
+				for (var count = 0; count <= 100; count++) {
+					if(count % 3 == 0 && count % 5 != 0){
+						console.log("Fizz");
+					} else if(count % 5 == 0 && count % 3 != 0){
+						console.log("Buzz");
+					} else if(count % 5 == 0 && count % 3 == 0) {
+						console.log("FizzBuzz");
+					} else {
+						console.log(count);
+					}
+
+
+				};
+			}
+
+			var madLibs = function() {
+				var verb = prompt("Give me a past-tense Verb.", "Jumped");
+				var adjective = prompt("Give me an Adjective", "Succulent");
+				var noun = prompt("Give me a Noun", "Pig");
+				console.log("The " + noun.toLowerCase() + " " + verb.toLowerCase() + " to it's " + adjective.toLowerCase() + " car.");
+			}
+
+			var reverseHashtags = function() {
+				var input = prompt("How big is your triangle?", "So many")
+				var out="";
+				if(isNaN(input)) {
+					alert("Please put in a number.");
+				} else {
+					for (var count = 0; count < input ; count++) {
+						out = out +"#";
+						console.log(out)
+					}
+					for (var count = input; count > 0 ; count--) {
+						out = out.slice(0,-1);
+						console.log(out)
+					}
+				}
+			}
+			clicks = 0;
+			var CYOA = function() {
+				clicks++
+				if (clicks == 1) {
+					document.getElementById("CYOA").innerHTML = "You enter a dark room";
+					document.body.style.backgroundColor = "black";
+					document.getElementById("CYOA").style.color = "white";
+				} else if (clicks == 2) {
+					document.getElementById("CYOA").innerHTML = "You hear a noise.";
+				} else if (clicks == 3) {
+					document.getElementById("CYOA").innerHTML = "You die.";
+				} else {
+					document.getElementById("CYOA").innerHTML = "";
+					document.body.style.backgroundColor = "white";
+					document.getElementById("CYOA").style.color = "black";
+				}
+
+			}
+
+			var countBs = function(toAnalyze) {
+				var str = prompt("Give me a sentence.");
+				bs = 0;
+				for (var count = 0; count < str.length; count++) {
+					if (str.charAt(count) === "b" || str.charAt(count) === "B") {
+						bs++
+					}
+				};
+				console.log(bs);
+			}
+
+			var countChar = function (toAnalyze, character) {
+				//countChar code
+			}
+		</script>
+
+	</head>
+
+	<body>
+		
+		<button onclick="fizzBuzz()">FizzBuzz</button>
+		<br><br>
+		<button onclick="madLibs()">Mad Libs</button>
+		<br><br>
+		<button onclick="reverseHashtags()">Reverse Hashtags</button>
+		<br><br>
+		<button onclick="countBs('BCB')">Count Bs</button>
+		<br><br>
+		<button onclick="CYOA()">CYOA</button>
+		<p id = "CYOA"></p>
+
+	</body>
+
+</html>
