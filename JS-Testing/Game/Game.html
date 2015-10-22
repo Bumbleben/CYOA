@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RPG Testing</title>
+	<style type="text/css">
+	body {
+		padding-left: 100px;
+	}
+	#log {
+		text-align: left;
+	}
+	#Naruto {
+		width: 50px;
+	}
+
+
+
+	</style>
+
+	<script type="application/javascript">
+	var logy = function(x) {
+		var log = document.getElementById("log");
+		log.innerHTML = log.innerHTML + "<div>" + x + "</div>"
+	}
+	var dead = function() {
+		logy("You died!");
+	}
+	var sprite = {
+		number: 1,
+		hp: 100,
+		name: "Naruto",
+		strength: 25,
+		offSkill: 70,
+		defSkill: 30,
+	};
+
+	var enemy = {
+		hp: 100,
+		name: "Sally",
+		strength: 15,
+		offSkill: 60,
+		defSkill: 40
+	};
+
+	var character =function(hp, sp, offSkill, defSkill) {
+		this.hp = hp;
+		this.sp = sp;
+		this.offSkill = offSkill;
+		this.defSkill = defSkill;
+	}
+
+	var goblin = new character(5, 10, 40, 30);
+	var player = new character(10, 100, 75, 75);
+
+	var fight = function(attacker,defender) {
+		var offPercentage = Math.floor((Math.random() * 100) + 1);
+		var defPercentage = Math.floor((Math.random() * 100) + 1);
+		if (attacker.offSkill < offPercentage){
+			logy("Missed!");
+		} else if (defender.defSkill > defPercentage) {
+			logy("Blocked!");
+		} else {
+			goblin.hp--;
+			logy("Hit! " + goblin.hp);
+		}
+	}
+	var defend = function() {
+		var defPercentage = Math.floor((Math.random() * 100) + 1);
+		var offPercentage = Math.floor((Math.random() * 100) + 1);
+		if (sprite.defSkill <= defPercentage && enemy.offSkill > offPercentage) {
+
+		}
+
+	}
+
+	</script>
+
+
+
+
+</head>
+<body>
+	<img id = "Naruto" src="Assets/Mario_Sprite_1.png">
+	<br>
+	<button onclick="fight(player, goblin)">Attack</button>
+	<div id="log"></div>
+</body>
+</html>
