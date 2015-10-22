@@ -1,3 +1,5 @@
+//ORIGINAL
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,6 +85,82 @@
 	<img id = "Naruto" src="Assets/Mario_Sprite_1.png">
 	<br>
 	<button onclick="fight(player, goblin)">Attack</button>
+	<div id="log"></div>
+</body>
+</html>
+
+
+//NEW
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RPG Testing</title>
+	<style type="text/css">
+		body {
+			padding-left: 100px;
+		}
+		#Mario {
+			width: 50px;
+		}
+	</style>
+
+
+
+
+	<script type="application/javascript">
+
+
+		var logy = function(x) {
+			var log = document.getElementById("log");
+			log.innerHTML = log.innerHTML + "<div>" + x + "</div>";
+		}
+
+
+		var character =function(hp, sp, offSkill, defSkill, name) {
+			this.hp = hp;
+			this.sp = sp;
+			this.offSkill = offSkill;
+			this.defSkill = defSkill;
+			this.name = name;
+		}
+
+
+		var goblin = new character(150, 15, 60, 50, "Goblin");
+		var player = new character(100, 25, 50, 55, "Mario");
+		
+
+		var fight = function(attacker,defender) {
+			var offPercentage = Math.floor((Math.random() * 100) + 1);
+			var defPercentage = Math.floor((Math.random() * 100) + 1);
+			if (attacker.offSkill < offPercentage){
+				logy("The attack by "+attacker.name+" missed!");
+				console.log(defender.hp);
+			} else if (defender.defSkill > defPercentage) {
+				logy("The attack by " + attacker.name + " was blocked!");
+				console.log(defender.hp);
+			} else if (defender.hp - attacker.sp <= 0) {
+				defender.hp = defender.hp - attacker.sp;
+				logy("The attack by " + attacker.name + " killed " + defender + "!");
+				console.log(defender.hp);
+			} else {
+				defender.hp = defender.hp - attacker.sp;
+				logy("The attack by " + attacker.name + " was succesful!");
+				console.log(defender.hp);
+			}
+
+		}
+
+
+	</script>
+
+</head>
+<body>
+	<p></p>
+	<p></p>
+	<img id = "Mario" src="Assets/Mario_Sprite_1.png">
+	<br>
+	<button id = "attack" onclick="fight(player, goblin)">Attack</button>
 	<div id="log"></div>
 </body>
 </html>
